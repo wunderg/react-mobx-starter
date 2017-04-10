@@ -5,7 +5,7 @@ useStrict(true);
 class TodosState {
   @observable fetching = false;
   @observable todosList = [];
-  @observable searchText = '';
+  @observable searchValue = '';
   @observable selector = null;
   @observable nextId = 343;
   constructor(){
@@ -44,15 +44,16 @@ class TodosState {
 
   @action
   handleChange = (event) => {
-    this.searchText = event.target.value;
+    this.searchValue = event.target.value;
   }
 
   @action
   addTodo = (event) => {
-    if(event.keyCode === 13 && this.searchText.length > 0) {
-      const newTodo = {text: this.searchText, id: this.nextId++, done: false, show: true};
+    if(event.keyCode === 13 && this.searchValue.length > 0) {
+      const newTodo = {text: this.searchValue, id: this.nextId++, done: false, show: true};
+      this.searchValue = '';
+      debugger;
       this.todosList.push(newTodo);
-      this.searchText = '';
       autorun(() => this.postTodos(newTodo));
     }
   }

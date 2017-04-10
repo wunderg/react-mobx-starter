@@ -8,6 +8,7 @@ class Todos extends Component {
 
   render() {
     const {handleChange, searchValue, addTodo} = this.props.todoState;
+    debugger;
     return (
       <div className='todoInput'>
         <div>

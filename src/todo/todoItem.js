@@ -17,7 +17,7 @@ const TodoItem = props => {
             {todo.done ? <ActionDone /> : <ActionRight />}
           </IconButton>
         </div>
-        <div>{todo.text}!</div>
+        <div>{todo.text}</div>
         <div>
 
           <IconButton onClick={deleteTodo.bind(null, todo)} iconStyle={{color: 'red'}}>
